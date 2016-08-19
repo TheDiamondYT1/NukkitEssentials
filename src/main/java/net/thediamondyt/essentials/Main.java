@@ -32,5 +32,6 @@ public class Main extends PluginBase {
         map.register("heal", new CommandHeal(this));
         map.register("fly", new CommandFly(this));
         map.register("kickall", new CommandKickall(this));
+        map.register("broadcast", new CommandBroadcast(this));
     }
 }
