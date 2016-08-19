@@ -1,0 +1,5 @@
+name: NukkitEssentials
+author: TheDiamondYT
+version: "1.0"
+main: net.thediamondyt.essentials.Main
+api: ["1.0.0"]

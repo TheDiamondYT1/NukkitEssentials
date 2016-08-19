@@ -1,0 +1,9 @@
+.idea/
+target/
+bin/
+
+# IDE
+*.iml
+
+# Mac crap
+.DS_STORE
