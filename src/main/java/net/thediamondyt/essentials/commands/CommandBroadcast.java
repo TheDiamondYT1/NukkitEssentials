@@ -36,7 +36,7 @@ public class CommandBroadcast extends EssentialsCommand {
         for(String arg : args) {
             sb.append(arg + " ");
         }
-        sender.getServer().broadcastMessage(f("<red>Broadcast > <white>" + sb.toString()));
+        sender.getServer().broadcastMessage(f("<gold>[<darkred>Broadcast<gold>] <green>" + sb.toString()));
         return true;
     }
 }
