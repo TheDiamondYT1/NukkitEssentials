@@ -28,30 +28,32 @@ public class CommandHeal extends EssentialsCommand {
 
     @Override
     public boolean execute(CommandSender sender, String label, String[] args) {
-        if(!testPermission(sender)) return false;
+        if(!testPermission(sender)) return true;
 
-        switch(args.length) {
-            case 0:
-                Player target = getPlugin().getServer().getPlayer(args[1]);
-
-                if(target == null) {
-                    sender.sendMessage(RED + "That player is not online");
-                     return true;
-                }
-
-                target.setHealth(20);
-                target.sendMessage(GREEN + "You have been healed by " + YELLOW + sender.getName());
-                sender.sendMessage(GOLD + "You healed " + YELLOW + target.getName());
-            case 1:
-                if(!(sender instanceof Player)) {
-                    sender.sendMessage("That command must be executed in-game!");
-                }
-
-                ((Player) sender).setHealth(20);
-                sender.sendMessage(GREEN + "Your have been healed");
-            default:
-                sender.sendMessage(sender instanceof Player ? RED + "Usage: /heal [player]" : RED + "Usage: /heal <player>");
-                return false;
+        if(args.length >= 2) {
+            sender.sendMessage(sender instanceof Player ? RED + "Usage: /heal [player]" : RED + "Usage: /heal <player>");
+            return false;
         }
+
+        if(args.length == 1) {
+            Player target = sender.getServer().getPlayer(args[0]);
+
+            if(!(target instanceof Player)) {
+                sender.sendMessage(RED + "That player is not online");
+                return true;
+            }
+            ((Player) target).setHealth(20);
+            target.sendMessage(GREEN + "You have been healed by " + YELLOW + sender.getName());
+            sender.sendMessage(GOLD + "You healed " + YELLOW + target.getName());
+            return true;
+        }
+
+        if(!(sender instanceof Player)) {
+            sender.sendMessage("Usage: /heal <player>");
+            return true;
+        }
+        ((Player) sender).setHealth(20);
+        sender.sendMessage(GREEN + "Your have been healed");
+        return true;
     }
 }
