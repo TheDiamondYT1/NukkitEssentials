@@ -17,7 +17,7 @@ import cn.nukkit.plugin.PluginBase;
 
 import static cn.nukkit.utils.TextFormat.*;
 
-import net.thediamondyt.essentials.commands.CommandHeal;
+import net.thediamondyt.essentials.commands.*;
 
 public class Main extends PluginBase {
 
@@ -30,5 +30,7 @@ public class Main extends PluginBase {
         CommandMap map = getServer().getCommandMap();
 
         map.register("heal", new CommandHeal(this));
+        map.register("fly", new CommandFly(this));
+        map.register("kickall", new CommandKickall(this));
     }
 }

@@ -16,12 +16,13 @@ import cn.nukkit.Player;
 import cn.nukkit.command.CommandSender;
 
 import net.thediamondyt.essentials.Main;
+import net.thediamondyt.essentials.Utils;
 
-public class CommandHeal extends EssentialsCommand {
+public class CommandFly extends EssentialsCommand {
 
-    public CommandHeal(Main plugin) {
-        super(plugin, "heal", "Heal yourself or another player", "[player]");
-        setPermission("essentials.heal");
+    public CommandFly(Main plugin) {
+        super(plugin, "fly", "Fly around the server!", "[player]");
+        setPermission("essentials.fly");
     }
 
     @Override
@@ -29,7 +30,7 @@ public class CommandHeal extends EssentialsCommand {
         if(!testPermission(sender)) return true;
 
         if(args.length >= 2) {
-            sender.sendMessage(sender instanceof Player ? "<red>Usage: /heal [player]" : "<red>Usage: /heal <player>");
+            sender.sendMessage(sender instanceof Player ? f("<red>Usage: /fly [player]") : f("<red>Usage: /fly <player>"));
             return false;
         }
 
@@ -40,19 +41,22 @@ public class CommandHeal extends EssentialsCommand {
                 sender.sendMessage(f("<red>That player is not online."));
                 return true;
             }
-            ((Player) target).setHealth(20);
-            target.sendMessage(f("<gold>You have been healed by " + ((Player) sender).getDisplayName()));
-            sender.sendMessage(f("<gold>You healed " + target.getDisplayName() + "<gold>."));
+
+            String message = Utils.toggleFlight((Player) sender);
+
+            target.sendMessage(f("<gold>Set fly mode <red>" + message + " <gold>by " + ((Player) sender).getDisplayName() + "<gold>."));
+            sender.sendMessage(f("<gold>Set fly mode <red>" + message + " <gold>for "  + target.getDisplayName() + "<gold>."));
             return true;
         }
 
         if(!(sender instanceof Player)) {
-            sender.sendMessage(f("<red>Usage: /heal <player>"));
+            sender.sendMessage(f("<red>Usage: /fly <player>"));
             return true;
         }
 
-        ((Player) sender).setHealth(20);
-        sender.sendMessage(f("<gold>You have been healed."));
+        String message = Utils.toggleFlight((Player) sender);
+
+        sender.sendMessage(f("<gold>Set fly mode <red>" + message + " <gold>for "  + ((Player) sender).getDisplayName() + "<gold>."));
         return true;
     }
 }
