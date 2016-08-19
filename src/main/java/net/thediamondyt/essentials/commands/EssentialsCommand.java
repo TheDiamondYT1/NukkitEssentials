@@ -27,6 +27,12 @@ abstract class EssentialsCommand extends Command implements PluginIdentifiableCo
         this.plugin = plugin;
     }
 
+    public EssentialsCommand(Main plugin, String name, String desc, String usage, String[] aliases) {
+        super(name, desc, usage, aliases);
+
+        this.plugin = plugin;
+    }
+
     /*
      * The main class of the plugin
      * @return plugin

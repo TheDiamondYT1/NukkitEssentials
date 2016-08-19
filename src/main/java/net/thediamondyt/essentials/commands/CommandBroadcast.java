@@ -19,7 +19,7 @@ import net.thediamondyt.essentials.Main;
 public class CommandBroadcast extends EssentialsCommand {
 
     public CommandBroadcast(Main plugin) {
-        super(plugin, "broadcast", "Broadcast a message to the server", "<message>");
+        super(plugin, "broadcast", "Broadcast a message to the server", "<message>", new String[]{"bc", "announce"});
         setPermission("essentials.broadcast");
     }
 
@@ -27,7 +27,7 @@ public class CommandBroadcast extends EssentialsCommand {
     public boolean execute(CommandSender sender, String label, String[] args) {
         if(!testPermission(sender)) return true;
 
-        if(args.length >= 2) {
+        if(args.length >= 1) {
             sender.sendMessage(f("<red>Usage: /broadcast <message>"));
             return false;
         }
