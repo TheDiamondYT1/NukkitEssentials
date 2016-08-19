@@ -30,8 +30,6 @@ public class CommandHeal extends EssentialsCommand {
     public boolean execute(CommandSender sender, String label, String[] args) {
         if(!testPermission(sender)) return false;
 
-        sender
-
         switch(args.length) {
             case 0:
                 Player target = getPlugin().getServer().getPlayer(args[1]);
@@ -55,6 +53,5 @@ public class CommandHeal extends EssentialsCommand {
                 sender.sendMessage(sender instanceof Player ? RED + "Usage: /heal [player]" : RED + "Usage: /heal <player>");
                 return false;
         }
-        return true;
     }
 }
