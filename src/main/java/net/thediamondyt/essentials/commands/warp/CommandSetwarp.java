@@ -10,7 +10,7 @@
  *
  * NukkitEssentials v1.0
  */
-package net.thediamondyt.essentials.commands.teleport;
+package net.thediamondyt.essentials.commands.warp;
 
 import cn.nukkit.Player;
 import cn.nukkit.command.CommandSender;
@@ -18,34 +18,24 @@ import cn.nukkit.command.CommandSender;
 import net.thediamondyt.essentials.Main;
 import net.thediamondyt.essentials.commands.EssentialsCommand;
 
-public class CommandTpall extends EssentialsCommand {
+public class CommandSetwarp extends EssentialsCommand {
 
-    public CommandTpall(Main plugin) {
-        super(plugin, "tpall", "Teleport all players to you.", null, new String[]{"etpall"});
-        setPermission("essentials.tpall");
+    public CommandSetwarp(Main plugin) {
+        super(plugin, "setwarp", "Set a warp.", null, new String[]{"addwarp"});
+        setPermission("essentials.setwarp");
     }
 
     @Override
     public boolean execute(CommandSender sender, String label, String[] args) {
         if(!testPermission(sender)) return true;
 
-        if(args.length >= 1) {
-            sender.sendMessage(f("<red>Usage: /tpall"));
+        if(args.length >= 2 || args.length < 1) {
+            sender.sendMessage(f("<red>Usage: /setwarp <name>"));
             return false;
         }
-
-        if(sender.getServer().getOnlinePlayers().values().isEmpty()) {
-            sender.sendMessage(f("<gold>There are no players on the server."));
-            return true;
-        }
-
-        for(Player p : sender.getServer().getOnlinePlayers().values()) {
-            if(p != sender) {
-                p.teleport(((Player) sender));
-                p.sendMessage(f("<gold>Teleporting to " + ((Player) sender).getDisplayName() + "..."));
-            }
-        }
-        sender.sendMessage(f("<gold>Teleporting players to you..."));
+        
+        getPlugin().getWarps().set("warps", args[1]);
+        sender.sendMessage(f("<gold>Set warp " + args[1] + ". This is a test and will later change."));
         return true;
     }
 }

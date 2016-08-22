@@ -15,16 +15,24 @@ package net.thediamondyt.essentials;
 import cn.nukkit.command.CommandMap;
 import cn.nukkit.plugin.PluginBase;
 
+import cn.nukkit.utils.Config;
 import static cn.nukkit.utils.TextFormat.*;
 
 import net.thediamondyt.essentials.commands.*;
+import net.thediamondyt.esentials.commands.warp.*;
 import net.thediamondyt.esentials.commands.teleport.*;
 
 public class Main extends PluginBase {
+    
+    public Config warps;
 
     public void onEnable() {
-        getServer().getLogger().info(GREEN + "NukkitEssentials by TheDiamondYT loaded!");
+        saveResource("warps.yml", true);
+        this.warps = new Config("warps.yml", Config.YAML);
+        
         loadCommands();
+        
+        getServer().getLogger().info(GREEN + "NukkitEssentials by TheDiamondYT loaded!")
     }
 
     private void loadCommands() {
@@ -40,5 +48,10 @@ public class Main extends PluginBase {
         
         // Teleportation commands
         map.register("tpall", new CommandTpall(this));
+        map.register("setwarp", new CommandSetwarp(this))
+    }
+    
+    public Config getWarps() {
+        return warps;
     }
 }
