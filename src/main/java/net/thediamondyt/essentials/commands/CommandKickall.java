@@ -20,7 +20,7 @@ import net.thediamondyt.essentials.Main;
 public class CommandKickall extends EssentialsCommand {
 
     public CommandKickall(Main plugin) {
-        super(plugin, "kickall", "Kick all players from the server", null);
+        super(plugin, "kickall", "Kick all players from the server", null, new String[]{"ekickall"});
         setPermission("essentials.kickall");
     }
 

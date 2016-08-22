@@ -21,7 +21,7 @@ import net.thediamondyt.essentials.Utils;
 public class CommandFly extends EssentialsCommand {
 
     public CommandFly(Main plugin) {
-        super(plugin, "fly", "Fly around the server!", "[player]", new String[]{"flight"});
+        super(plugin, "fly", "Fly around the server!", "[player]", new String[]{"efly", "flight"});
         setPermission("essentials.fly");
     }
 

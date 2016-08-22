@@ -20,7 +20,7 @@ import net.thediamondyt.essentials.Main;
 public class CommandHeal extends EssentialsCommand {
 
     public CommandHeal(Main plugin) {
-        super(plugin, "heal", "Heal yourself or another player", "[player]");
+        super(plugin, "heal", "Heal yourself or another player", "[player]", new String[]{"eheal"});
         setPermission("essentials.heal");
     }
 

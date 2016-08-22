@@ -19,7 +19,7 @@ import net.thediamondyt.essentials.Main;
 public class CommandBroadcast extends EssentialsCommand {
 
     public CommandBroadcast(Main plugin) {
-        super(plugin, "broadcast", "Broadcast a message to the server", "<message>", new String[]{"bc", "announce"});
+        super(plugin, "broadcast", "Broadcast a message to the server", "<message>", new String[]{"ebc", "bc", "bcast", "eshout", "shout"});
         setPermission("essentials.broadcast");
     }
 

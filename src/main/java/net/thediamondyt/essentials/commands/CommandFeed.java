@@ -20,7 +20,7 @@ import net.thediamondyt.essentials.Main;
 public class CommandFeed extends EssentialsCommand {
 
     public CommandFeed(Main plugin) {
-        super(plugin, "feed", "Feed yourself or another player", "[player]", new String[]{"eat"});
+        super(plugin, "feed", "Feed yourself or another player", "[player]", new String[]{"efeed", "eat", "eeat"});
         setPermission("essentials.feed");
     }
 
