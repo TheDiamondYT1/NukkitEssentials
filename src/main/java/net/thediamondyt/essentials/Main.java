@@ -18,6 +18,7 @@ import cn.nukkit.plugin.PluginBase;
 import static cn.nukkit.utils.TextFormat.*;
 
 import net.thediamondyt.essentials.commands.*;
+import net.thediamondyt.esentials.commands.teleport.*;
 
 public class Main extends PluginBase {
 
@@ -29,11 +30,15 @@ public class Main extends PluginBase {
     private void loadCommands() {
         CommandMap map = getServer().getCommandMap();
 
+        // Normal commands
         map.register("heal", new CommandHeal(this));
         map.register("fly", new CommandFly(this));
         map.register("feed", new CommandFeed(this));
         map.register("kickall", new CommandKickall(this));
         map.register("broadcast", new CommandBroadcast(this));
         map.register("clearinventory", new CommandClearinv(this));
+        
+        // Teleportation commands
+        map.register("tpall", new CommandTpall(this));
     }
 }
