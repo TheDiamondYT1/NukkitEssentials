@@ -34,5 +34,6 @@ public class Main extends PluginBase {
         map.register("feed", new CommandFeed(this));
         map.register("kickall", new CommandKickall(this));
         map.register("broadcast", new CommandBroadcast(this));
+        map.register("clearinventory", new CommandClearinv(this));
     }
 }
