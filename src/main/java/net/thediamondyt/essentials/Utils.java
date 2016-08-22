@@ -5,16 +5,16 @@ import cn.nukkit.Player;
 public class Utils {
 
     public static String toggleFlight(Player player) {
-        String message;
+        String state;
 
         if(player.getAllowFlight()) {
             player.setAllowFlight(false);
-            message = "disabled";
+            state = "disabled";
         } else {
             player.setAllowFlight(true);
-            message = "enabled";
+            state = "enabled";
         }
-        return message;
+        return state;
     }
 
 }
