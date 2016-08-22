@@ -32,7 +32,7 @@ public class Main extends PluginBase {
         
         loadCommands();
         
-        getServer().getLogger().info(GREEN + "NukkitEssentials by TheDiamondYT loaded!")
+        getServer().getLogger().info(GREEN + "NukkitEssentials by TheDiamondYT loaded!");
     }
 
     private void loadCommands() {
@@ -48,7 +48,7 @@ public class Main extends PluginBase {
         
         // Teleportation commands
         map.register("tpall", new CommandTpall(this));
-        map.register("setwarp", new CommandSetwarp(this))
+        map.register("setwarp", new CommandSetwarp(this));
     }
     
     public Config getWarps() {
