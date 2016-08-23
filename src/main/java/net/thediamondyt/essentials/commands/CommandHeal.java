@@ -41,8 +41,8 @@ public class CommandHeal extends EssentialsCommand {
                 return true;
             }
             ((Player) target).setHealth(20);
-            target.sendMessage(f("<gold>You have been healed by " + ((Player) sender).getName() ));
-            sender.sendMessage(f("<gold>You healed " +  ((Player) target).getName()  + "<gold>."));
+            target.sendMessage(f("<gold>You have been healed by " + sender.getName() ));
+            sender.sendMessage(f("<gold>You healed " +  target.getName()  + "<gold>."));
             return true;
         }
 

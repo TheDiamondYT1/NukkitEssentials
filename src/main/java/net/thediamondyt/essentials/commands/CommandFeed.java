@@ -41,7 +41,7 @@ public class CommandFeed extends EssentialsCommand {
                 return true;
             }
             ((Player) target).getFoodData().setLevel(20);
-            target.sendMessage(f("<gold>You have been fed by " + ((Player) sender).getName()));
+            target.sendMessage(f("<gold>You have been fed by " + sender.getName()));
             sender.sendMessage(f("<gold>Your apetite has been sated."));
             return true;
         }

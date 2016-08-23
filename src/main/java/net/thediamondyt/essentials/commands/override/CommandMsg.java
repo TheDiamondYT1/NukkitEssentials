@@ -46,8 +46,8 @@ public class CommandMsg extends EssentialsCommand {
         for(String arg : args) {
             sb.append(arg + " ");
         }
-        sender.sendMessage(f("<gold>[me -> " + ((Player) target).getName()  + "] <white>" + sb.toString()));
-        target.sendMessage(f("<gold>[ " + ((Player) sender).getName() + " -> me] <white>" + sb.toString()));
+        sender.sendMessage(f("<gold>[me -> " + target.getName()  + "] <white>" + sb.toString()));
+        target.sendMessage(f("<gold>[" + sender.getName() + " -> me] <white>" + sb.toString()));
         return true;
     }
 }

@@ -41,8 +41,8 @@ public class CommandClearinv extends EssentialsCommand {
                 return true;
             }
             ((Player) target).getInventory().clearAll();
-            target.sendMessage(f("<gold>Inventory cleared by " +  ((Player) sender).getName()));
-            sender.sendMessage(f("<gold>Inventory of <red>" +  ((Player) target).getName()  + " <gold>cleared."));
+            target.sendMessage(f("<gold>Inventory cleared by " +  sender.getName()));
+            sender.sendMessage(f("<gold>Inventory of <red>" +  target.getName()  + " <gold>cleared."));
             return true;
         }
 

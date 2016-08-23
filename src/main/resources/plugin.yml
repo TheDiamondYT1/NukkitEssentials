@@ -3,3 +3,26 @@ author: TheDiamondYT
 version: "1.0"
 main: net.thediamondyt.essentials.Main
 api: ["1.0.0"]
+permissions:
+    essentials:
+        default: false
+        description: Main Essentials command
+        children:
+            essentials.broadcast:
+                default: op
+            essentials.clearinventory:
+                default: op
+            essentials.fly:
+                default: op
+            essentials.feed:
+                default: op
+            essentials.heal:
+                default: op
+            essentials.kickall:
+                default: op
+            essentials.setwarp:
+                default: op
+            essentials.msg:
+                default: true
+            essentials.tpall:
+                default: op
