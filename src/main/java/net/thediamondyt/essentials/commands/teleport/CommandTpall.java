@@ -29,11 +29,6 @@ public class CommandTpall extends EssentialsCommand {
     public boolean execute(CommandSender sender, String label, String[] args) {
         if(!testPermission(sender)) return true;
 
-        if(args.length >= 1) {
-            sender.sendMessage(f("<red>Usage: /tpall"));
-            return false;
-        }
-
         if(sender.getServer().getOnlinePlayers().values().isEmpty()) {
             sender.sendMessage(f("<gold>There are no players on the server."));
             return true;

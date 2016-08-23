@@ -24,12 +24,11 @@ import net.thediamondyt.essentials.commands.teleport.*;
 import net.thediamondyt.essentials.commands.override.*;
 
 public class Main extends PluginBase {
-    
-    public Config warps;
 
     public void onEnable() {
         saveDefaultConfig();
-        
+        saveResource("motd.txt");
+
         loadCommands();
         
         getServer().getLogger().info(GREEN + "NukkitEssentials by TheDiamondYT loaded!");
@@ -45,6 +44,7 @@ public class Main extends PluginBase {
         map.register("kickall", new CommandKickall(this));
         map.register("broadcast", new CommandBroadcast(this));
         map.register("clearinventory", new CommandClearinv(this));
+        map.register("motd", new CommandMotd(this));
         
         // Teleportation commands
         map.register("tpall", new CommandTpall(this));
@@ -52,9 +52,5 @@ public class Main extends PluginBase {
         
         // Overriden commands
         map.register("tell", new CommandMsg(this));
-    }
-    
-    public Config getWarps() {
-        return warps;
     }
 }

@@ -12,33 +12,29 @@
  */
 package net.thediamondyt.essentials.commands;
 
-import cn.nukkit.Player;
 import cn.nukkit.command.CommandSender;
+
+import static cn.nukkit.utils.TextFormat.*;
 
 import net.thediamondyt.essentials.Main;
 
-public class CommandKickall extends EssentialsCommand {
+import java.util.Scanner;
 
-    public CommandKickall(Main plugin) {
-        super(plugin, "kickall", "Kick all players from the server", null, new String[]{"ekickall"});
-        setPermission("essentials.kickall");
+public class CommandMotd extends EssentialsCommand {
+
+    public CommandMotd(Main plugin) {
+        super(plugin, "motd", "Display the message of the day.", null);
+        setPermission("essentials.motd");
     }
 
     @Override
     public boolean execute(CommandSender sender, String label, String[] args) {
         if(!testPermission(sender)) return true;
 
-        if(sender.getServer().getOnlinePlayers().values().isEmpty()) {
-            sender.sendMessage(f("<gold>There are no players on the server."));
-            return true;
+        Scanner s = new Scanner(getPlugin().getClass().getResourceAsStream("/motd.txt"));
+        while(s.hasNextLine()) {
+            sender.sendMessage(colorize(s.nextLine()).replace("{PLAYER}", sender.getName()));
         }
-
-        for(Player p : sender.getServer().getOnlinePlayers().values()) {
-            if(p != sender && !p.isOp()) {
-                p.kick("Kicked from the server", false);
-            }
-        }
-        sender.getServer().broadcastMessage(f("<gold>All players have been kicked by " + sender.getName()));
         return true;
     }
 }
