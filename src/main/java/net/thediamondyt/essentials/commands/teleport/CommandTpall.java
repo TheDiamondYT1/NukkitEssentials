@@ -42,7 +42,7 @@ public class CommandTpall extends EssentialsCommand {
         for(Player p : sender.getServer().getOnlinePlayers().values()) {
             if(p != sender) {
                 p.teleport(((Player) sender));
-                p.sendMessage(f("<gold>Teleporting to " + ((Player) sender).getDisplayName() + "..."));
+                p.sendMessage(f("<gold>Teleporting to " + ((Player) sender).getName() + "..."));
             }
         }
         sender.sendMessage(f("<gold>Teleporting players to you..."));

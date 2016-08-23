@@ -27,7 +27,7 @@ public class CommandBroadcast extends EssentialsCommand {
     public boolean execute(CommandSender sender, String label, String[] args) {
         if(!testPermission(sender)) return true;
 
-        if(args.length >= 1) {
+        if(args.length < 1) {
             sender.sendMessage(f("<red>Usage: /broadcast <message>"));
             return false;
         }

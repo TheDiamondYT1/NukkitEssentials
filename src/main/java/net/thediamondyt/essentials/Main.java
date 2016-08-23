@@ -28,8 +28,7 @@ public class Main extends PluginBase {
     public Config warps;
 
     public void onEnable() {
-        saveResource("warps.yml", true);
-        this.warps = new Config("warps.yml", Config.YAML);
+        saveDefaultConfig();
         
         loadCommands();
         

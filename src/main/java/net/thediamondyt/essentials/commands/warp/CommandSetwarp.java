@@ -15,8 +15,11 @@ package net.thediamondyt.essentials.commands.warp;
 import cn.nukkit.Player;
 import cn.nukkit.command.CommandSender;
 
+import cn.nukkit.level.Location;
 import net.thediamondyt.essentials.Main;
 import net.thediamondyt.essentials.commands.EssentialsCommand;
+
+import java.util.List;
 
 public class CommandSetwarp extends EssentialsCommand {
 
@@ -33,9 +36,14 @@ public class CommandSetwarp extends EssentialsCommand {
             sender.sendMessage(f("<red>Usage: /setwarp <name>"));
             return false;
         }
-        
-        getPlugin().getWarps().set("warps", args[1]);
-        sender.sendMessage(f("<gold>Set warp " + args[1] + ". This is a test and will later change."));
+
+        Location l = ((Player) sender).getLocation();
+
+        String name = args[0];
+
+        getPlugin().getConfig().set("warps", name);
+        sender.sendMessage(f("<gold>Warp <red>" + name + " <gold>set."));
+        getPlugin().getConfig().save();
         return true;
     }
 }

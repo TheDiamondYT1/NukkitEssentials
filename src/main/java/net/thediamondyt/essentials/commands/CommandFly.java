@@ -44,7 +44,7 @@ public class CommandFly extends EssentialsCommand {
 
             String message = Utils.toggleFlight((Player) target);
 
-            target.sendMessage(f("<gold>Set fly mode <red>" + message + " <gold>by " + ((Player) sender).getDisplayName() + "<gold>."));
+            target.sendMessage(f("<gold>Set fly mode <red>" + message + " <gold>by " + ((Player) sender).getName() + "<gold>."));
             sender.sendMessage(f("<gold>Set fly mode <red>" + message + " <gold>for "  + target.getDisplayName() + "<gold>."));
             return true;
         }
@@ -56,7 +56,7 @@ public class CommandFly extends EssentialsCommand {
 
         String message = Utils.toggleFlight((Player) sender);
 
-        sender.sendMessage(f("<gold>Set fly mode <red>" + message + " <gold>for "  + ((Player) sender).getDisplayName() + "<gold>."));
+        sender.sendMessage(f("<gold>Set fly mode <red>" + message + " <gold>for "  + ((Player) sender).getName() + "<gold>."));
         return true;
     }
 }

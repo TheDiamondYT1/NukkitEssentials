@@ -16,7 +16,7 @@ import cn.nukkit.Player;
 import cn.nukkit.command.CommandSender;
 
 import net.thediamondyt.essentials.Main;
-import net.thediamondyt.essentials.Utils;
+import net.thediamondyt.essentials.commands.EssentialsCommand;
 
 public class CommandMsg extends EssentialsCommand {
 
@@ -42,14 +42,12 @@ public class CommandMsg extends EssentialsCommand {
             return true;
         }
         
-        String senderName = sender instanceof Player ? ((Player) sender).getDisplayName() : sender.getName();
-        
         StringBuilder sb = new StringBuilder();
         for(String arg : args) {
             sb.append(arg + " ");
         }
-        sender.sendMessage(f("<gold>[me -> " + ((Player) target).getDisplayName() + "] <white>" + sb.toString()));
-        target.sendMessage(f("<gold>[ " + senderName + " -> me] <white>" + sb.toString());
+        sender.sendMessage(f("<gold>[me -> " + ((Player) target).getName()  + "] <white>" + sb.toString()));
+        target.sendMessage(f("<gold>[ " + ((Player) sender).getName() + " -> me] <white>" + sb.toString()));
         return true;
     }
 }

@@ -17,9 +17,9 @@ import cn.nukkit.command.CommandSender;
 
 import net.thediamondyt.essentials.Main;
 
-public class CommandClearInv extends EssentialsCommand {
+public class CommandClearinv extends EssentialsCommand {
 
-    public CommandClearInv(Main plugin) {
+    public CommandClearinv(Main plugin) {
         super(plugin, "clearinventory", "Clear your inventory", "[player]", new String[]{"eci", "ci", "eclearinventory", "clearinv", "eclearinv"});
         setPermission("essentials.clearinventory");
     }
@@ -41,8 +41,8 @@ public class CommandClearInv extends EssentialsCommand {
                 return true;
             }
             ((Player) target).getInventory().clearAll();
-            target.sendMessage(f("<gold>Inventory cleared by " + ((Player) sender).getDisplayName()));
-            sender.sendMessage(f("<gold>Inventory of <red>" + ((Player) target).getDisplayName() + " <gold>cleared."));
+            target.sendMessage(f("<gold>Inventory cleared by " +  ((Player) sender).getName()));
+            sender.sendMessage(f("<gold>Inventory of <red>" +  ((Player) target).getName()  + " <gold>cleared."));
             return true;
         }
 

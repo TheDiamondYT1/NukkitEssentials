@@ -29,7 +29,7 @@ public class CommandHeal extends EssentialsCommand {
         if(!testPermission(sender)) return true;
 
         if(args.length >= 2) {
-            sender.sendMessage(sender instanceof Player ? "<red>Usage: /heal [player]" : "<red>Usage: /heal <player>");
+            sender.sendMessage(sender instanceof Player ? f("<red>Usage: /heal [player]") : f("<red>Usage: /heal <player>"));
             return false;
         }
 
@@ -41,8 +41,8 @@ public class CommandHeal extends EssentialsCommand {
                 return true;
             }
             ((Player) target).setHealth(20);
-            target.sendMessage(f("<gold>You have been healed by " + ((Player) sender).getDisplayName()));
-            sender.sendMessage(f("<gold>You healed " + target.getDisplayName() + "<gold>."));
+            target.sendMessage(f("<gold>You have been healed by " + ((Player) sender).getName() ));
+            sender.sendMessage(f("<gold>You healed " +  ((Player) target).getName()  + "<gold>."));
             return true;
         }
 

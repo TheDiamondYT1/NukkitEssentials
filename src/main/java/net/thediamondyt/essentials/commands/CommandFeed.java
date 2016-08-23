@@ -29,7 +29,7 @@ public class CommandFeed extends EssentialsCommand {
         if(!testPermission(sender)) return true;
 
         if(args.length >= 2) {
-            sender.sendMessage(sender instanceof Player ? "<red>Usage: /feed [player]" : "<red>Usage: /feed <player>");
+            sender.sendMessage(sender instanceof Player ? f("<red>Usage: /feed [player]") : f("<red>Usage: /feed <player>"));
             return false;
         }
 
@@ -41,7 +41,7 @@ public class CommandFeed extends EssentialsCommand {
                 return true;
             }
             ((Player) target).getFoodData().setLevel(20);
-            target.sendMessage(f("<gold>You have been fed by " + ((Player) sender).getDisplayName()));
+            target.sendMessage(f("<gold>You have been fed by " + ((Player) sender).getName()));
             sender.sendMessage(f("<gold>Your apetite has been sated."));
             return true;
         }

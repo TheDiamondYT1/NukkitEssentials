@@ -43,7 +43,7 @@ public class CommandKickall extends EssentialsCommand {
                 p.kick("Kicked from the server", false);
             }
         }
-        sender.getServer().broadcastMessage(f("<gold>All players have been kicked by " + ((Player) sender).getDisplayName()));
+        sender.getServer().broadcastMessage(f("<gold>All players have been kicked by " + ((Player) sender).getName()));
         return true;
     }
 }
