@@ -13,6 +13,7 @@
 package net.thediamondyt.essentials.commands;
 
 import cn.nukkit.command.Command;
+import cn.nukkit.command.CommandMap;
 import cn.nukkit.command.PluginIdentifiableCommand;
 
 import net.thediamondyt.essentials.Main;
@@ -20,17 +21,29 @@ import net.thediamondyt.essentials.Main;
 abstract class EssentialsCommand extends Command implements PluginIdentifiableCommand {
 
     private Main plugin;
-
+    
     public EssentialsCommand(Main plugin, String name, String desc, String usage) {
         super(name, desc, usage);
 
         this.plugin = plugin;
     }
-
+    
     public EssentialsCommand(Main plugin, String name, String desc, String usage, String[] aliases) {
         super(name, desc, usage, aliases);
 
         this.plugin = plugin;
+    }
+
+    // Only for commands that override default ones
+    public EssentialsCommand(Main plugin, Boolean override, String name, String desc, String usage, String[] aliases) {
+        super(override, name, desc, usage, aliases);
+
+        this.plugin = plugin;
+        
+        CommandMap map = plugin.getServer().getCommandMap();
+        Command command = map.getCommand(name);
+        command.setLabel(name + "_disabled");
+        command.unregister(map);
     }
 
     /*
