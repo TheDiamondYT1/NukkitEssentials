@@ -24,5 +24,7 @@ permissions:
                 default: true
             essentials.motd:
                 default: true
+            essentials.helpop:
+                default: true
             essentials.tpall:
                 default: op
