@@ -43,6 +43,7 @@ public class Main extends PluginBase {
         map.register("kickall", new CommandKickall(this));
         map.register("broadcast", new CommandBroadcast(this));
         map.register("clearinventory", new CommandClearinv(this));
+        map.register("ping", new CommandPing(this));
 		map.register("helpop", new CommandHelpop(this));
         map.register("motd", new CommandMotd(this));
         

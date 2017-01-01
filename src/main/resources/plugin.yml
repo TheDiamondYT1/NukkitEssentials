@@ -22,6 +22,8 @@ permissions:
                 default: op
             essentials.msg:
                 default: true
+            essentials.ping:
+                default: true
             essentials.motd:
                 default: true
             essentials.helpop:
