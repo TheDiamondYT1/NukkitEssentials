@@ -10,13 +10,13 @@
  *
  * NukkitEssentials v1.0
  */
-package net.thediamondyt.essentials.commands.override;
+package tk.thediamondyt.essentials.commands.override;
 
 import cn.nukkit.Player;
 import cn.nukkit.command.CommandSender;
 
-import net.thediamondyt.essentials.Main;
-import net.thediamondyt.essentials.commands.EssentialsCommand;
+import tk.thediamondyt.essentials.Main;
+import tk.thediamondyt.essentials.commands.EssentialsCommand;
 
 public class CommandMsg extends EssentialsCommand {
 

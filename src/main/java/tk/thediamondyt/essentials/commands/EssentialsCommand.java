@@ -10,14 +10,14 @@
  *
  * NukkitEssentials v1.0
  */
-package net.thediamondyt.essentials.commands;
+package tk.thediamondyt.essentials.commands;
 
 import cn.nukkit.Player;
 import cn.nukkit.command.Command;
 import cn.nukkit.command.CommandMap;
 import cn.nukkit.command.PluginIdentifiableCommand;
 
-import net.thediamondyt.essentials.Main;
+import tk.thediamondyt.essentials.Main;
 
 public abstract class EssentialsCommand extends Command implements PluginIdentifiableCommand {
 

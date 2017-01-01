@@ -1,7 +1,7 @@
 name: Essentials
 author: TheDiamondYT
 version: "1.0"
-main: net.thediamondyt.essentials.Main
+main: tk.thediamondyt.essentials.Main
 api: ["1.0.0"]
 permissions:
     essentials:
@@ -19,8 +19,6 @@ permissions:
             essentials.heal:
                 default: op
             essentials.kickall:
-                default: op
-            essentials.setwarp:
                 default: op
             essentials.msg:
                 default: true

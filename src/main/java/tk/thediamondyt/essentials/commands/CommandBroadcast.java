@@ -10,31 +10,33 @@
  *
  * NukkitEssentials v1.0
  */
-package net.thediamondyt.essentials.commands;
+package tk.thediamondyt.essentials.commands;
 
 import cn.nukkit.command.CommandSender;
 
-import static cn.nukkit.utils.TextFormat.*;
+import tk.thediamondyt.essentials.Main;
 
-import net.thediamondyt.essentials.Main;
+public class CommandBroadcast extends EssentialsCommand {
 
-import java.util.Scanner;
-
-public class CommandMotd extends EssentialsCommand {
-
-    public CommandMotd(Main plugin) {
-        super(plugin, "motd", "Display the message of the day.", null);
-        setPermission("essentials.motd");
+    public CommandBroadcast(Main plugin) {
+        super(plugin, "broadcast", "Broadcast a message to the server", "<message>", new String[]{"ebc", "bc", "bcast", "eshout", "shout"});
+        setPermission("essentials.broadcast");
     }
 
     @Override
     public boolean execute(CommandSender sender, String label, String[] args) {
         if(!testPermission(sender)) return true;
 
-        Scanner s = new Scanner(getPlugin().getClass().getResourceAsStream("/motd.txt"));
-        while(s.hasNextLine()) {
-            sender.sendMessage(colorize(s.nextLine()).replace("{PLAYER}", sender.getName()));
+        if(args.length < 1) {
+            sender.sendMessage(f("<red>Usage: /broadcast <message>"));
+            return false;
         }
+
+        StringBuilder sb = new StringBuilder();
+        for(String arg : args) {
+            sb.append(arg + " ");
+        }
+        sender.getServer().broadcastMessage(f("<gold>[<darkred>Broadcast<gold>] <green>" + sb.toString()));
         return true;
     }
 }

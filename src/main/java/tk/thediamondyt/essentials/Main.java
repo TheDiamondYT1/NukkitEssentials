@@ -10,7 +10,7 @@
  *
  * NukkitEssentials v1.0
  */
-package net.thediamondyt.essentials;
+package tk.thediamondyt.essentials;
 
 import cn.nukkit.command.CommandMap;
 import cn.nukkit.plugin.PluginBase;
@@ -18,10 +18,9 @@ import cn.nukkit.plugin.PluginBase;
 import cn.nukkit.utils.Config;
 import static cn.nukkit.utils.TextFormat.*;
 
-import net.thediamondyt.essentials.commands.*;
-import net.thediamondyt.essentials.commands.warp.*;
-import net.thediamondyt.essentials.commands.teleport.*;
-import net.thediamondyt.essentials.commands.override.*;
+import tk.thediamondyt.essentials.commands.*;
+import tk.thediamondyt.essentials.commands.teleport.*;
+import tk.thediamondyt.essentials.commands.override.*;
 
 public class Main extends PluginBase {
 
@@ -48,7 +47,6 @@ public class Main extends PluginBase {
         
         // Teleportation commands
         map.register("tpall", new CommandTpall(this));
-        map.register("setwarp", new CommandSetwarp(this));
         
         // Overriden commands
         map.register("tell", new CommandMsg(this));

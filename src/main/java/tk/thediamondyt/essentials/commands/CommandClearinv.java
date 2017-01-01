@@ -10,18 +10,18 @@
  *
  * NukkitEssentials v1.0
  */
-package net.thediamondyt.essentials.commands;
+package tk.thediamondyt.essentials.commands;
 
 import cn.nukkit.Player;
 import cn.nukkit.command.CommandSender;
 
-import net.thediamondyt.essentials.Main;
+import tk.thediamondyt.essentials.Main;
 
-public class CommandHeal extends EssentialsCommand {
+public class CommandClearinv extends EssentialsCommand {
 
-    public CommandHeal(Main plugin) {
-        super(plugin, "heal", "Heal yourself or another player", "[player]", new String[]{"eheal"});
-        setPermission("essentials.heal");
+    public CommandClearinv(Main plugin) {
+        super(plugin, "clearinventory", "Clear your inventory", "[player]", new String[]{"eci", "ci", "eclearinventory", "clearinv", "eclearinv"});
+        setPermission("essentials.clearinventory");
     }
 
     @Override
@@ -29,7 +29,7 @@ public class CommandHeal extends EssentialsCommand {
         if(!testPermission(sender)) return true;
 
         if(args.length >= 2) {
-            sender.sendMessage(sender instanceof Player ? f("<red>Usage: /heal [player]") : f("<red>Usage: /heal <player>"));
+            sender.sendMessage(sender instanceof Player ? "<red>Usage: /clearinventory [player]" : "<red>Usage: /clearinventory <player>");
             return false;
         }
 
@@ -40,19 +40,19 @@ public class CommandHeal extends EssentialsCommand {
                 sender.sendMessage(f("<red>That player is not online."));
                 return true;
             }
-            ((Player) target).setHealth(20);
-            target.sendMessage(f("<gold>You have been healed by " + sender.getName() ));
-            sender.sendMessage(f("<gold>You healed " +  target.getName()  + "<gold>."));
+            ((Player) target).getInventory().clearAll();
+            target.sendMessage(f("<gold>Inventory cleared by " +  sender.getName()));
+            sender.sendMessage(f("<gold>Inventory of <red>" +  target.getName()  + " <gold>cleared."));
             return true;
         }
 
         if(!(sender instanceof Player)) {
-            sender.sendMessage(f("<red>Usage: /heal <player>"));
+            sender.sendMessage(f("<red>Usage: /clearinventory <player>"));
             return true;
         }
 
-        ((Player) sender).setHealth(20);
-        sender.sendMessage(f("<gold>You have been healed."));
+        ((Player) sender).getInventory().clearAll();
+        sender.sendMessage(f("<gold>Inventory cleared."));
         return true;
     }
 }

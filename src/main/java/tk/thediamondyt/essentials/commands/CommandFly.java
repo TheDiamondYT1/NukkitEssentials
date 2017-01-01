@@ -10,18 +10,19 @@
  *
  * NukkitEssentials v1.0
  */
-package net.thediamondyt.essentials.commands;
+package tk.thediamondyt.essentials.commands;
 
 import cn.nukkit.Player;
 import cn.nukkit.command.CommandSender;
 
-import net.thediamondyt.essentials.Main;
+import tk.thediamondyt.essentials.Main;
+import tk.thediamondyt.essentials.Utils;
 
-public class CommandFeed extends EssentialsCommand {
+public class CommandFly extends EssentialsCommand {
 
-    public CommandFeed(Main plugin) {
-        super(plugin, "feed", "Feed yourself or another player", "[player]", new String[]{"efeed", "eat", "eeat"});
-        setPermission("essentials.feed");
+    public CommandFly(Main plugin) {
+        super(plugin, "fly", "Fly around the server!", "[player]", new String[]{"efly", "flight"});
+        setPermission("essentials.fly");
     }
 
     @Override
@@ -29,7 +30,7 @@ public class CommandFeed extends EssentialsCommand {
         if(!testPermission(sender)) return true;
 
         if(args.length >= 2) {
-            sender.sendMessage(sender instanceof Player ? f("<red>Usage: /feed [player]") : f("<red>Usage: /feed <player>"));
+            sender.sendMessage(sender instanceof Player ? f("<red>Usage: /fly [player]") : f("<red>Usage: /fly <player>"));
             return false;
         }
 
@@ -40,19 +41,22 @@ public class CommandFeed extends EssentialsCommand {
                 sender.sendMessage(f("<red>That player is not online."));
                 return true;
             }
-            ((Player) target).getFoodData().setLevel(20);
-            target.sendMessage(f("<gold>You have been fed by " + sender.getName()));
-            sender.sendMessage(f("<gold>Your apetite has been sated."));
+
+            String message = Utils.toggleFlight((Player) target);
+
+            target.sendMessage(f("<gold>Set fly mode <red>" + message + " <gold>by " + sender.getName() + "<gold>."));
+            sender.sendMessage(f("<gold>Set fly mode <red>" + message + " <gold>for "  + target.getDisplayName() + "<gold>."));
             return true;
         }
 
         if(!(sender instanceof Player)) {
-            sender.sendMessage(f("<red>Usage: /feed <player>"));
+            sender.sendMessage(f("<red>Usage: /fly <player>"));
             return true;
         }
 
-        ((Player) sender).getFoodData().setLevel(20);
-        sender.sendMessage(f("<gold>Your apetite has been sated."));
+        String message = Utils.toggleFlight((Player) sender);
+
+        sender.sendMessage(f("<gold>Set fly mode <red>" + message + " <gold>for "  + sender.getName() + "<gold>."));
         return true;
     }
 }

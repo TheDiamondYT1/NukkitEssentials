@@ -10,18 +10,19 @@
  *
  * NukkitEssentials v1.0
  */
-package net.thediamondyt.essentials.commands;
+package tk.thediamondyt.essentials.commands.teleport;
 
 import cn.nukkit.Player;
 import cn.nukkit.command.CommandSender;
 
-import net.thediamondyt.essentials.Main;
+import tk.thediamondyt.essentials.Main;
+import tk.thediamondyt.essentials.commands.EssentialsCommand;
 
-public class CommandKickall extends EssentialsCommand {
+public class CommandTpall extends EssentialsCommand {
 
-    public CommandKickall(Main plugin) {
-        super(plugin, "kickall", "Kick all players from the server", null, new String[]{"ekickall"});
-        setPermission("essentials.kickall");
+    public CommandTpall(Main plugin) {
+        super(plugin, "tpall", "Teleport all players to you.", null, new String[]{"etpall"});
+        setPermission("essentials.tpall");
     }
 
     @Override
@@ -34,11 +35,12 @@ public class CommandKickall extends EssentialsCommand {
         }
 
         for(Player p : sender.getServer().getOnlinePlayers().values()) {
-            if(p != sender && !p.isOp()) {
-                p.kick("Kicked from the server", false);
+            if(p != sender) {
+                p.teleport(((Player) sender));
+                p.sendMessage(f("<gold>Teleporting to " + sender.getName() + "..."));
             }
         }
-        sender.getServer().broadcastMessage(f("<gold>All players have been kicked by " + sender.getName()));
+        sender.sendMessage(f("<gold>Teleporting players to you..."));
         return true;
     }
 }
