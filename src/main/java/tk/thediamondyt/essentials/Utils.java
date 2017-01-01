@@ -28,4 +28,13 @@ public class Utils {
         }
         return state;
     }
+    
+    public static String split(String[] args) {
+        StringBuilder sb = new StringBuilder();     
+        for(String arg : args) {
+            sb.append(arg + " ");
+        }
+        
+        return sb.toString();
+    }
 }

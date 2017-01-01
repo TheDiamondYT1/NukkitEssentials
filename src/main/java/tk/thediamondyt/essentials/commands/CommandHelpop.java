@@ -16,10 +16,11 @@ import cn.nukkit.Player;
 import cn.nukkit.command.CommandSender;
 
 import tk.thediamondyt.essentials.Main;
+import tk.thediamondyt.essentials.Utils;
 
 public class CommandHelpop extends EssentialsCommand {
 
-    public CommandKickall(Main plugin) {
+    public CommandHelpop(Main plugin) {
         super(plugin, "helpop", "Ask an operator for help.", null, new String[]{"ehelpop"});
         setPermission("essentials.helpop");
     }
@@ -34,8 +35,8 @@ public class CommandHelpop extends EssentialsCommand {
 				return true;
             } else {
 				// TODO: Match Essentials message format
-				p.sendMessage(f("<darkred>HelpOp: <yellow>" + args.split(" ")));
-				sender.sendMessage(f("<darkred>HelpOp: <yellow>" + args.split(" ")));
+				p.sendMessage(f("<darkred>HelpOp: <yellow>" + Utils.split(args)));
+				sender.sendMessage(f("<darkred>HelpOp: <yellow>" + Utils.split(args)));
 				return true;
 			}
         }

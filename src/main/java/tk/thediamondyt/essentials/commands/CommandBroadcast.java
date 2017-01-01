@@ -30,13 +30,8 @@ public class CommandBroadcast extends EssentialsCommand {
         if(args.length < 1) {
             sender.sendMessage(f("<red>Usage: /broadcast <message>"));
             return false;
-        }
-
-        StringBuilder sb = new StringBuilder();
-        for(String arg : args) {
-            sb.append(arg + " ");
-        }
-        sender.getServer().broadcastMessage(f("<gold>[<darkred>Broadcast<gold>] <green>" + sb.toString()));
+        }		
+        sender.getServer().broadcastMessage(f("<gold>[<darkred>Broadcast<gold>] <green>" + Utils.split(args)));
         return true;
     }
 }
